@@ -31,10 +31,14 @@ const SignupForm = () => {
     }
 
     try {
+      console.log("SENDING MUTATION");
       const response = await createUser({variables: {username: userFormData.username, email: userFormData.email, password: userFormData.password}});
-
-      if (!response.ok) {
-        throw new Error('something went wrong!');
+      console.log("MUTATION SENT");
+      if (error) {
+        console.log(error)
+      }
+      if (data) {
+        console.log(data);
       }
 
       // const { token, user } = await response.json();
